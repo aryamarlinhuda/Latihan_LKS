@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+use App\Http\Controllers\LoginController;
+Route::get('/home',[LoginController::class, 'index']);
+Route::get('/home/login',[LoginController::class, 'login']);
+Route::post('/home/login/procces',[LoginController::class, 'login_action']);
+
+use App\Http\Controllers\BlogController;
+Route::get('/blog',[BlogController::class, 'list']);
+Route::get('/blog/create',[BlogController::class, 'create']);
+Route::post('/blog/create/procces',[BlogController::class, 'create_procces']);
