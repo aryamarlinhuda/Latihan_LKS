@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\Session;
 class LoginController extends Controller
 {
     public function index() {
-        return view('home');
+        return view('beforelogin.home');
     }
 
     public function login() {
-        return view('login');
+        return view('beforelogin.login');
     }
 
     public function login_action(Request $request) {
@@ -35,9 +35,20 @@ class LoginController extends Controller
         ];
 
         if(Auth::attempt($infologin)) {
-            return redirect('home')->with('success', 'Berhasil login');
+            return redirect('dashboard/home')->with('success', 'Login Berhasil');
         } else {
             return redirect('home/login')->withErrors('Email dan password yang dimasukkan tidak valid');
         }
+    }
+
+    // Dashboard
+    public function dashboard(Request $request) {
+        return view('afterlogin.home',['data' => $request]);
+    }
+
+    // Logout
+    public function logout() {
+        Auth::logout();
+        return redirect('home')->with('success', 'Logout Berhasil');
     }
 }

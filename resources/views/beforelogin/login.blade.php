@@ -1,4 +1,4 @@
-@extends('app.starter')
+@extends('beforelogin.starter')
 @section('judul_halaman', 'Login')
 <!-- Form Login -->
 @section('halaman_login')

@@ -23,6 +23,13 @@ Route::get('/home/login',[LoginController::class, 'login']);
 Route::post('/home/login/procces',[LoginController::class, 'login_action']);
 
 use App\Http\Controllers\BlogController;
-Route::get('/blog',[BlogController::class, 'list']);
-Route::get('/blog/create',[BlogController::class, 'create']);
-Route::post('/blog/create/procces',[BlogController::class, 'create_procces']);
+Route::group(['middleware' => ['userlogin']], function() {
+    Route::get('/dashboard/home', [LoginController::class, 'dashboard']);
+    Route::get('/home/logout',[LoginController::class, 'logout']);
+    Route::get('/blog',[BlogController::class, 'list']);
+    Route::get('/blog/create',[BlogController::class, 'create']);
+    Route::post('/blog/create/procces',[BlogController::class, 'create_procces']);
+    Route::get('/blog/{id}/edit',[BlogController::class, 'edit']);
+    Route::post('/blog/{id}/edit/procces',[BlogController::class, 'edit_procces']);
+    Route::delete('/blog/{id}/delete',[BlogController::class, 'delete']);
+});

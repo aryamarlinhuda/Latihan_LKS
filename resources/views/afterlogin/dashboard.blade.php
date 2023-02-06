@@ -34,7 +34,7 @@
             </li>
         </ul>
         <form class="form-inline">
-            <a href="/home/login"class="btn btn-outline-light my-2 my-sm-0">Login</a>
+            <a href="/home/logout"class="btn btn-outline-light my-2 my-sm-0">Log Out</a>
         </form>
         </div>
     </nav>
@@ -43,6 +43,7 @@
     @yield('halaman_login')
     @yield('halaman_listblog')
     @yield('halaman_createblog')
+    @yield('halaman_editblog')
 
     <!-- Footer -->
     <div class="bg-primary">
