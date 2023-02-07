@@ -23,10 +23,6 @@
         <input class="form-control" type="text" name="title" value="{{ Session::get('title')}}">
     </div>
     <div class="form-group">
-        <label for="slug" class="form-label">Slug</label>
-        <input class="form-control" type="text" name="slug" value="{{ Session::get('slug')}}">
-    </div>
-    <div class="form-group">
         <label for="content" class="form-label">Content</label>
         <textarea class="form-control" type="text" name="content" value="{{ Session::get('content')}}"></textarea>
     </div>

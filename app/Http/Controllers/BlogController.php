@@ -9,8 +9,16 @@ use Illuminate\Support\Facades\Session;
 
 class BlogController extends Controller
 {
-    public function list() {
-        $data = Blog::orderBy('id', 'desc')->get();
+    public function list(Request $request) {
+        // Search Blog
+        $katakunci = $request->katakunci;
+        if(strlen($katakunci)){
+            $data = Blog::where('title', 'like', "%$katakunci%")
+                ->orWhere('content', 'like', "%$katakunci%")->get();
+        } else {
+            $data = Blog::orderBy('id', 'desc')->get();
+        }
+
         return view('blog.listblog')->with('data', $data);
     }
 
@@ -29,7 +37,6 @@ class BlogController extends Controller
         // Validasi
         $request->validate([
             'title' => 'required',
-            'slug' => 'required',
             'content' => 'required',
             'viewer' => 'required'
         ]);
@@ -38,7 +45,6 @@ class BlogController extends Controller
         $data = [
             'user_id' => $request->user_id,
             'title' => $request->title,
-            'slug' => $request->slug,
             'content' => $request->content,
             'viewer' => $request->viewer
         ];
@@ -57,7 +63,6 @@ class BlogController extends Controller
         // Validasi
         $request->validate([
             'title' => 'required',
-            'slug' => 'required',
             'content' => 'required',
             'viewer' => 'required'
         ]);
@@ -65,7 +70,6 @@ class BlogController extends Controller
         // Proses Edit Blog
         $data = [
             'title' => $request->title,
-            'slug' => $request->slug,
             'content' => $request->content,
             'viewer' => $request->viewer
         ];

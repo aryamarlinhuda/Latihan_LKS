@@ -23,10 +23,6 @@
         <input class="form-control" type="text" name="title" value="{{ $data->title }}">
     </div>
     <div class="form-group">
-        <label for="slug" class="form-label">Slug</label>
-        <input class="form-control" type="text" name="slug" value="{{ $data->slug }}">
-    </div>
-    <div class="form-group">
         <label for="content" class="form-label">Content</label>
         <input class="form-control" type="text" name="content" value="{{ $data->content }}">
     </div>
