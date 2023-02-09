@@ -21,6 +21,12 @@ use App\Http\Controllers\LoginController;
 Route::get('/home',[LoginController::class, 'index']);
 Route::get('/home/login',[LoginController::class, 'login']);
 Route::post('/home/login/procces',[LoginController::class, 'login_action']);
+Route::get('/about-us', function () {
+    return view('beforelogin.about');
+});
+Route::get('/contact-us', function () {
+    return view('beforelogin.contact');
+});
 
 use App\Http\Controllers\BlogController;
 Route::group(['middleware' => ['userlogin']], function() {
@@ -32,4 +38,8 @@ Route::group(['middleware' => ['userlogin']], function() {
     Route::get('/blog/{id}/edit',[BlogController::class, 'edit']);
     Route::post('/blog/{id}/edit/procces',[BlogController::class, 'edit_procces']);
     Route::delete('/blog/{id}/delete',[BlogController::class, 'delete']);
+    Route::get('/blog/detail/{slug}', [BlogController::class, 'detail']);
+    Route::get('/dashboard/about-us', function () {
+        return view('afterlogin.about');
+    });
 });

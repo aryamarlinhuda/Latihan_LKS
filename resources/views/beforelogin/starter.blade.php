@@ -21,16 +21,16 @@
         <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item @yield('home')">
-            <a class="nav-link" href="/dashboard/home">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item @yield('about')">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="/about-us">About</a>
             </li>
             <li class="nav-item @yield('blog')">
             <a class="nav-link" href="/blog">Blog</a>
             </li>
             <li class="nav-item @yield('contact')">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="/contact-us">Contact</a>
             </li>
         </ul>
         <form class="form-inline">
@@ -41,6 +41,8 @@
 
     @yield('halaman_home')
     @yield('halaman_login')
+    @yield('halaman_about')
+    @yield('halaman_contact')
     @yield('halaman_listblog')
     @yield('halaman_createblog')
 
@@ -49,12 +51,12 @@
         <div class="container">
             <footer class="py-3">
                 <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                    <li class="nav-item"><a href="home" class="nav-link px-2 text-white">Home</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-white">About</a></li>
-                    <li class="nav-item"><a href="blog" class="nav-link px-2 text-white">Blog</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Contact</a></li>
+                    <li class="nav-item"><a href="/home" class="nav-link px-2 text-white">Home</a></li>
+                    <li class="nav-item"><a href="/about-us" class="nav-link px-2 text-white">About</a></li>
+                    <li class="nav-item"><a href="/blog" class="nav-link px-2 text-white">Blog</a></li>
+                    <li class="nav-item"><a href="/contact-us" class="nav-link px-2 text-white">Contact</a></li>
                 </ul>
-                <p class="text-center text-white">© 2022 Company, Inc</p>
+                <p class="text-center text-white">© 2023 blog.com</p>
             </footer>
         </div>
     </div>

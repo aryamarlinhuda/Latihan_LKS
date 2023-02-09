@@ -36,8 +36,8 @@
         @foreach ($data as $item)
         <div class="card text-white bg-info m-3">
             <div class="card-body">
-                <h5 class="card-title">{{ $item->title }}</h5>
-                <p class="card-text">{{ $item->content }}</p>
+                <a href="{{ url('blog/detail/'.$item->slug) }}"><h5 class="card-title text-white">{{ $item->title }}</h5></a>
+                <p class="card-text">{{ Str::limit($item->content, 170) }}</p>
                 <a href="{{ url('blog/'.$item->id.'/edit') }}" class="btn btn-warning ms-2">Edit</a>
                 <form action="{{ url('/blog/'.$item->id.'/delete')}}" method="POST" class="d-inline">
                     @csrf

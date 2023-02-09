@@ -3,6 +3,13 @@
 <!-- Form Login -->
 @section('halaman_login')
 <div class="container">
+    @if(session('success'))
+    <div class="alert alert-success alert-block dismissible show fade mt-3">
+        <div class="alert-body">
+            {{session('success')}}
+        </div>
+    </div>
+    @endif
     <div class="card o-hidden border-0 shadow-lg my-5 col-lg-7 mx-auto">
         <div class="card-body p-0">
             <!-- Layout Login -->

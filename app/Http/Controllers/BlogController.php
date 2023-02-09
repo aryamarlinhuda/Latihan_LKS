@@ -30,7 +30,6 @@ class BlogController extends Controller
     public function create_procces(Request $request) {
         // Session
         Session::flash('title', $request->title);
-        Session::flash('slug', $request->slug);
         Session::flash('content', $request->content);
         Session::flash('viewer', $request->viewer);
 
@@ -76,6 +75,12 @@ class BlogController extends Controller
 
         Blog::where('id', $id)->update($data);
         return redirect('blog')->with('success_edit','Blog Updated');
+    }
+
+    // Detail Blog
+    public function detail($slug) {
+        $data = Blog::where('slug', $slug)->first();
+        return view('blog.detailblog')->with('data', $data);
     }
 
     // Delete Blog
