@@ -42,4 +42,7 @@ Route::group(['middleware' => ['userlogin']], function() {
     Route::get('/dashboard/about-us', function () {
         return view('afterlogin.about');
     });
+    Route::get('/dashboard/contact-us', function () {
+        return view('afterlogin.contact');
+    });    
 });
