@@ -15,12 +15,15 @@ return new class extends Migration
     {
         Schema::create('table_blog', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->string("title");
-            $table->string("slug")->nullable();
+            $table->string("slug");
             $table->text("content");
             $table->integer("viewer");
+        });
+
+        Schema::table('table_blog', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

@@ -42,7 +42,6 @@ class BlogController extends Controller
 
         // Proses Create Blog
         $data = [
-            'user_id' => $request->user_id,
             'title' => $request->title,
             'content' => $request->content,
             'viewer' => $request->viewer
